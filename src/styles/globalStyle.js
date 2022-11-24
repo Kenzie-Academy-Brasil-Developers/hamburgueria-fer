@@ -1,3 +1,26 @@
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+
+*{
+    font-family:'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+}
+
+a{
+    color:unset;
+    text-decoration: none;
+}
+
+
 :root{
 
     --color-primary: #27AE60;
@@ -18,4 +41,10 @@
     --color-information:#155BCB;
 
 
+    --font-18: 1.125rem;
+    --font-14: 0.875rem;
+
+
 }
+
+`

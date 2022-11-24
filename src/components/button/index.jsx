@@ -1,8 +1,12 @@
 import React from 'react'
+import { StyledButton } from './button'
 
-const Button = () => {
+
+const Button = ({children, background, type}) => {
   return (
-    <div>Button</div>
+    <>
+    <StyledButton type={type} background={background}>{children}</StyledButton>
+    </>
   )
 }
 
