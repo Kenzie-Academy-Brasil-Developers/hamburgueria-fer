@@ -19,14 +19,14 @@ const StyledHeader = styled.header`
 
   @media (min-width: 768px) {
     height: 120px;
-
+    
     .containerHeader {
       margin: 0 auto;
-      max-width: 1000px;
+      max-width: 1300px;
       width: 100%;
       flex-direction: row;
       justify-content: space-between;
-      gap: 10px;
+      
     }
   }
 `;

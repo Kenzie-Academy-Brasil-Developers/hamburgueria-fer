@@ -1,13 +1,29 @@
-import React from 'react'
-import { StyledButton } from './button'
+import React from "react";
+import { StyledButton } from "./button";
 
-
-const Button = ({children, background, type}) => {
+const Button = ({
+  children,
+  background,
+  border,
+  color,
+  type,
+  onClick,
+  size,
+}) => {
   return (
     <>
-    <StyledButton type={type} background={background}>{children}</StyledButton>
+      <StyledButton
+        type={type}
+        onClick={onClick}
+        background={background}
+        border={border}
+        color={color}
+        size={size}
+      >
+        {children}
+      </StyledButton>
     </>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const TypeTag = ({ children, className, tag }) => {
   return (
     <>
