@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import StyledHeader from "./header";
+import Logo from "../../assets/logo.svg";
+import Form from "../form";
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <StyledHeader>
+      <div className="containerHeader">
+        <img src={Logo} alt="logo" />
+        <Form />
+      </div>
+    </StyledHeader>
+  );
+};
 
-export default Header
+export default Header;

@@ -1,9 +1,28 @@
-import React from 'react'
+import { useState } from "react";
+import Cart from "../../components/cart";
+import Header from "../../components/header";
+import List from "../../components/list";
+import StyledHome from "./homePage";
 
 const HomePage = () => {
-  return (
-    <div>HomePage</div>
-  )
-}
+  const [products, setProducts] = useState([]);
+  const [cartList, setCartList] = useState([]);
+  // const [filteredProducts, setFilteredProducts] = useState([]);
 
-export default HomePage
+  return (
+    <>
+      <Header />
+      <StyledHome>
+        <List
+          products={products}
+          setProducts={setProducts}
+          cartList={cartList}
+          setCartList={setCartList}
+        />
+        <Cart cartList={cartList} setCartList={setCartList} />
+      </StyledHome>
+    </>
+  );
+};
+
+export default HomePage;
