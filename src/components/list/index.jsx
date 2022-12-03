@@ -27,7 +27,6 @@ const List = ({ products, setProducts, cartList, setCartList, filtered }) => {
       try {
         setLoading(true);
         const response = await api.get("products");
-        console.log(response);
         setProducts(response.data);
       } catch (error) {
         console.error(error);
