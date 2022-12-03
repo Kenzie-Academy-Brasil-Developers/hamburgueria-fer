@@ -7,17 +7,24 @@ import StyledHome from "./homePage";
 const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [cartList, setCartList] = useState([]);
-  // const [filteredProducts, setFilteredProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filtered, setFiltered] = useState("");
 
   return (
     <>
-      <Header />
+      <Header
+        setSearch={setSearch}
+        search={search}
+        filtered={filtered}
+        setFiltered={setFiltered}
+      />
       <StyledHome>
         <List
           products={products}
           setProducts={setProducts}
           cartList={cartList}
           setCartList={setCartList}
+          filtered={filtered}
         />
         <Cart cartList={cartList} setCartList={setCartList} />
       </StyledHome>

@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import api from "../../service/api";
 import CardList from "./cardCart";
 import StyledList from "./list";
 
-const List = ({ products, setProducts, cartList, setCartList }) => {
+const List = ({ products, setProducts, cartList, setCartList, filtered }) => {
+  const [loading, setLoading] = useState(false);
+
   function addCartList(product) {
     if (!cartList.some((elt) => Number(elt.id) === Number(product.id))) {
       setCartList([...cartList, product]);
@@ -14,25 +16,44 @@ const List = ({ products, setProducts, cartList, setCartList }) => {
     }
   }
 
+  const productFiltered = products.filter(
+    (elt) =>
+      elt.category.toLowerCase().includes(filtered.toLowerCase()) ||
+      elt.name.toLowerCase().includes(filtered.toLowerCase())
+  );
+
   useEffect(() => {
     async function getProducts() {
       try {
+        setLoading(true);
         const response = await api.get("products");
         console.log(response);
         setProducts(response.data);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     }
     getProducts();
   }, []);
 
   return (
-    <StyledList>
-      {products.map((elt) => (
-        <CardList key={elt.id.toString()} elt={elt} addCartList={addCartList} />
-      ))}
-    </StyledList>
+    <>
+      {loading ? (
+        <h2>Carregando...</h2>
+      ) : (
+        <StyledList>
+          {productFiltered.map((elt) => (
+            <CardList
+              key={elt.id.toString()}
+              elt={elt}
+              addCartList={addCartList}
+            />
+          ))}
+        </StyledList>
+      )}
+    </>
   );
 };
 export default List;

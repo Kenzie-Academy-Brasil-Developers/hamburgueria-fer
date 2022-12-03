@@ -3,10 +3,19 @@ import Button from "../button";
 import Input from "../input";
 import StyledForm from "./form";
 
-const Form = () => {
+const Form = ({ setSearch, search, filtered, setFiltered }) => {
+  function searchSubmit(e) {
+    e.preventDefault();
+    setFiltered(search);
+  }
+
   return (
-    <StyledForm>
-      <Input type={'text'} placeholder={'Digite a pesquisa...'}/>
+    <StyledForm onSubmit={searchSubmit}>
+      <Input
+        type={"text"}
+        placeholder={"Digite a pesquisa..."}
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <Button type={"submit"}>Pesquisar</Button>
     </StyledForm>
   );
