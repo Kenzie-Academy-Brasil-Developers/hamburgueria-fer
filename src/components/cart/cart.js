@@ -16,7 +16,7 @@ const StyledCart = styled.ul`
     height: 65px;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 425px) {
     width: 365px;
   }
 `;

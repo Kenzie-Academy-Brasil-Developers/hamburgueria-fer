@@ -1,12 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import Button from "../button";
 import Input from "../input";
 import StyledForm from "./form";
 
-const Form = ({ setSearch, search, filtered, setFiltered }) => {
+const Form = ({ setFiltered }) => {
+  const [search, setSearch] = useState("");
   function searchSubmit(e) {
     e.preventDefault();
     setFiltered(search);
+    setSearch("");
   }
 
   return (
@@ -15,6 +18,7 @@ const Form = ({ setSearch, search, filtered, setFiltered }) => {
         type={"text"}
         placeholder={"Digite a pesquisa..."}
         onChange={(e) => setSearch(e.target.value)}
+        value={search}
       />
       <Button type={"submit"}>Pesquisar</Button>
     </StyledForm>
