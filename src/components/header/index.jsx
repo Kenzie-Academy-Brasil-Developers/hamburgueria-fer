@@ -3,12 +3,12 @@ import StyledHeader from "./header";
 import Logo from "../../assets/logo.svg";
 import Form from "../form";
 
-const Header = ({products, setSearch, filtered, search, setFiltered} ) => {
+const Header = ({products, filtered, setFiltered} ) => {
   return (
     <StyledHeader>
       <div className="containerHeader">
         <img src={Logo} alt="logo" />
-        <Form products={products} setSearch={setSearch} search={search} filtered={filtered} setFiltered={setFiltered} />
+        <Form products={products}  filtered={filtered} setFiltered={setFiltered} />
       </div>
     </StyledHeader>
   );

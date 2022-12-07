@@ -1,8 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Button from "./components/button";
-import HomePage from "./pages/homePage";
-import { StyledFont } from "./styles/fonts";
+import HomePage from "./service/homePage";
 
 function App() {
   return (
